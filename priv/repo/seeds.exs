@@ -9,3 +9,10 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+alias MergeApi.Seeds
+
+Seeds.insert_fake_admin
+Seeds.insert_fake_user
+Seeds.insert_fake_user
+Seeds.insert_fake_user

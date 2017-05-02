@@ -20,6 +20,6 @@ defmodule MergeApi.User do
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, [:is_admin, :phone_number, :email, :password_hash, :auth_token_string, :signup_date, :last_active, :photo_url])
-    |> validate_required([:is_admin, :phone_number, :email, :password_hash, :auth_token_string, :signup_date, :last_active, :photo_url])
+    |> validate_required([:is_admin, :phone_number, :email, :password_hash, :signup_date, :last_active])
   end
 end
