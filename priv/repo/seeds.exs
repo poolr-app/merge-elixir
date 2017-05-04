@@ -11,6 +11,10 @@
 # and so on) as they will fail if something goes wrong.
 
 alias MergeApi.Seeds.SeedUsers
+alias MergeApi.Seeds.SeedLocations
+alias MergeApi.Seeds.SeedTrips
 
 SeedUsers.insert_fake_admin
-SeedUsers.insert_many_fake_users(250)
+SeedUsers.insert_many_fake_users(25)
+SeedLocations.insert_many_fake_locations(50)
+SeedTrips.insert_fake_user_trips_for_locations
