@@ -10,7 +10,7 @@
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
 
-alias MergeApi.Seeds
+alias MergeApi.Seeds.SeedUsers
 
-Seeds.insert_fake_admin
-Seeds.insert_many_fake_users(250)
+SeedUsers.insert_fake_admin
+SeedUsers.insert_many_fake_users(250)

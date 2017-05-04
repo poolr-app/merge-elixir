@@ -23,5 +23,7 @@ defmodule MergeApi.Router do
   scope "/api", MergeApi do
     pipe_through :api
     resources "/users", UserController, except: [:new, :edit]
+    resources "/locations", LocationController, except: [:new, :edit]
+    resources "/trips", TripController, except: [:new, :edit]
   end
 end

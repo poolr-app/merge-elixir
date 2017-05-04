@@ -1,4 +1,4 @@
-defmodule LocationType do
-  Home = 0
-  Work = 0
+defmodule MergeApi.Enums.LocationType do
+  def home do 0 end
+  def work do 1 end
 end
