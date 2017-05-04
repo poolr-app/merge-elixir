@@ -11,8 +11,11 @@
 ## Development
   * Start the Phoenix endpoint with `mix phoenix.server`
   * Navigate to `localhost:4000/api/users` to see the users you just seeded. 
+  * To get a specific user:
+  ` curl -H "Content-Type: application/json" -X GET  http://localhost:4000/api/users/$id` where $id is replaced by the id you are looking for
   * To post into the db use something like:
       `curl -H "Content-Type: application/json" -X POST -d '{"user":{"is_admin":"false", "phone_number": "1(234) 567-8910", "email":"bobby@bobbysplace.com", "password_hash":"thisistotallyasecurehash", "auth_token_string":"totallyasecureauthtoken", "signup_date":"2017-03-29T03:45:43", "last_active":"2017-04-29T20:30:34"}}' http://localhost:4000/api/users`
+      - This will send back the complete user with it's id field.
 
 
 ## Misc Commands
@@ -21,3 +24,5 @@
   * See all routes: `mix phoenix.routes`
 
 
+
+## Routes So far:
