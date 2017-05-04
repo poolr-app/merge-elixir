@@ -13,6 +13,4 @@
 alias MergeApi.Seeds
 
 Seeds.insert_fake_admin
-Seeds.insert_fake_user
-Seeds.insert_fake_user
-Seeds.insert_fake_user
+Seeds.insert_many_fake_users(250)

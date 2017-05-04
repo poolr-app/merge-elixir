@@ -2,6 +2,10 @@ defmodule MergeApi.Seeds do
   alias MergeApi.User
   alias MergeApi.Repo
 
+  def insert_many_fake_users(num_users_left \\ 250) do
+    insert_fake_user
+    insert_many_fake_users(num_users_left - 1)
+  end
 
   def insert_fake_user do
     Repo.insert! %User{

@@ -1,20 +1,23 @@
 # MergeApi
 
-To start your Phoenix app:
+## Setup
 
   * Install dependencies with `mix deps.get`
+  * Ensure Postgres is started
   * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
   * Install Node.js dependencies with `npm install`
-  * Start Phoenix endpoint with `mix phoenix.server`
+  * Seed the server with `mix run priv/repo/seeds.exs`
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+## Development
+  * Start the Phoenix endpoint with `mix phoenix.server`
+  * Navigate to `localhost:4000/api/users` to see the users you just seeded. 
+  * To post into the db use something like:
+      `curl -H "Content-Type: application/json" -X POST -d '{"user":{"is_admin":"false", "phone_number": "1(234) 567-8910", "email":"bobby@bobbysplace.com", "password_hash":"thisistotallyasecurehash", "auth_token_string":"totallyasecureauthtoken", "signup_date":"2017-03-29T03:45:43", "last_active":"2017-04-29T20:30:34"}}' http://localhost:4000/api/users`
 
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
 
-## Learn more
+## Misc Commands
+  * To see all available mix commands `mix help`
+  * Interactive Elixir Prompt: `iex`
+  * See all routes: `mix phoenix.routes`
 
-  * Official website: http://www.phoenixframework.org/
-  * Guides: http://phoenixframework.org/docs/overview
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+
