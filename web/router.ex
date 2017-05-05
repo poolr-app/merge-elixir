@@ -1,5 +1,6 @@
 defmodule MergeApi.Router do
   use MergeApi.Web, :router
+  alias MergeApi.Matching
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -25,5 +26,6 @@ defmodule MergeApi.Router do
     resources "/users", UserController, except: [:new, :edit]
     resources "/locations", LocationController, except: [:new, :edit]
     resources "/trips", TripController, except: [:new, :edit]
+    post "/match", Matching.MatchUser
   end
 end
