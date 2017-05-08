@@ -20,7 +20,7 @@ defmodule MergeApi.Mixfile do
     [mod: {MergeApi, []},
      env: [port: 4000],
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :faker]]
+                    :phoenix_ecto, :postgrex, :faker, :comeonin]]
   end
 
   # Specifies which paths to compile per environment.
@@ -39,6 +39,8 @@ defmodule MergeApi.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:faker, "~> 0.8.0"},
+     {:guardian, "~> 0.14"},
+     {:comeonin,  "~> 3.0"},
      {:credo, "~> 0.7", only: [:dev, :test]},
      {:cowboy, "~> 1.0"}]
   end

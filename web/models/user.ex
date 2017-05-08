@@ -5,6 +5,7 @@ defmodule MergeApi.User do
     field :is_admin, :boolean, default: false
     field :phone_number, :string
     field :email, :string
+    field :password, :string virtual: true
     field :password_hash, :string
     field :auth_token_string, :string
     field :signup_date, Ecto.DateTime
