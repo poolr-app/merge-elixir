@@ -29,9 +29,8 @@ import_config "#{Mix.env}.exs"
 config :guardian, Guardian,
   allowed_algos: ["HS512"], # optional
   verify_module: Guardian.JWT,  # optional
-  issuer: "MyApp",
-  ttl: { 30, :days },
+  issuer: "MergeApi",
+  ttl: { 30, :minutes },
   allowed_drift: 2000,
   verify_issuer: true, # optional
-  secret_key: "SUPERSECRETKEY",
-  serializer: MyApp.GuardianSerializer
+  serializer: MergeApi.Seralizers.GuardianSerializer
