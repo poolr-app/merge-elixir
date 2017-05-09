@@ -11,12 +11,12 @@ defmodule MergeApi.SessionController do
     # check 2fa value
     case TwoFactor.check_token(user, token) do
       # the value is correct, generate token.
-      {:ok, user } -> 
+      {:ok, user} -> 
         # TODO: Add perms value per user perms
         Guardian.Plug.sign_in(conn, user, :access, key: :auth_token)
         Repo.get(user, :auth_token)
       # the value is incorrect, fail
-      {:error, message } -> 
+      {:error, message} -> 
         auth_error_response(conn, message)
     end
   end
@@ -35,5 +35,5 @@ defmodule MergeApi.SessionController do
     conn 
     |> put_status(:authentication_error)
     |> render("error.json", message)
-
+  end
 end

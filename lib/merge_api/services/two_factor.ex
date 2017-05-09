@@ -3,6 +3,6 @@ defmodule MergeApi.Services.TwoFactor do
 
   def check_token(token) do
     if token == "12345" do
-      {ok:, Repo.get(User
+      {ok:, Repo.get(User)}
   end
 end
