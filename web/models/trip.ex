@@ -7,6 +7,7 @@ defmodule MergeApi.Trip do
     field :owning_user, :integer
     field :start_location, :integer
     field :end_location, :integer
+    field :state, MatchingState, default: MatchingState.unmatched
 
     timestamps()
   end

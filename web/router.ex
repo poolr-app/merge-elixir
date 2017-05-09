@@ -14,7 +14,6 @@ defmodule MergeApi.Router do
     plug :accepts, ["json"]
     plug Guaridan.Plug.VerifyHeader
     plug Guardian.Plug.LoadResource
-    plug Guardian.Plug.EnsureAuthenticated, handler: MergeApi.SessionController
   end
 
   scope "/", MergeApi do
@@ -26,10 +25,11 @@ defmodule MergeApi.Router do
   # Other scopes may use custom stacks.
   scope "/api", MergeApi do
     pipe_through :api
+    post "/auth", SessionController, :create
+    plug Guardian.Plug.EnsureAuthenticated, handler: MergeApi.SessionController
     resources "/users", UserController, except: [:new, :edit]
     resources "/locations", LocationController, except: [:new, :edit]
     resources "/trips", TripController, except: [:new, :edit]
     post "/match", Matching, :match
-    post "/auth", SessionController, :create
   end
 end

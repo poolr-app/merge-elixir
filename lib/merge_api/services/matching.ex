@@ -1,5 +1,24 @@
 defmodule MergeApi.Services.Matching do
-  def update(conn, %{"user_id" => match_params}) do
+  alias MergeApi.Repo
+  alias MergeApi.Enums.MatchingState
+  def match(conn, %{"user_id" => match_params}) do
     # TODO
+    user = Repo.get(user, user_id)
+    trip = Repo.get(user, :trip) #where it is the first trip where matchingstate == unmatched
+    trip.state = MatchingState.matching
+    case find_match(trip) do
+      {:ok, match} -> 
+        # matched correctly
+        trip.state = MatchingState.matched
+        trip
+      {:error, message} ->
+        trip.state = MatchingState.unmatched
+        message
+    end
+  end
+
+  defp find_match(trip) do
+    # TODO
+    {:error, "Couldn't find match"}
   end
 end
