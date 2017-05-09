@@ -29,6 +29,7 @@ defmodule MergeApi.Router do
     resources "/users", UserController, except: [:new, :edit]
     resources "/locations", LocationController, except: [:new, :edit]
     resources "/trips", TripController, except: [:new, :edit]
-    #post "/match", Matching.MatchUser
+    post "/match", Matching.MatchUser
+    post "/auth", SessionController, :create
   end
 end
