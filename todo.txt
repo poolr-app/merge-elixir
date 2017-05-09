@@ -1,31 +1,19 @@
 TODO:
 
-    is_admin -> PermissionLevel enum
+    proper use of all enums
+        EG:
+            is_admin -> PermissionLevel enum
     
-    Location Model where
-        lat     : float
-        lon     : float
-        label   : string
-        unit    : string
-        address : string
-        city    : string
-        region  : string
-        country : string
-        location_type : LocationType Enum
+    setup 2fa codes 
+    do full ActionScript Queries for where clauses
+    fix token generation (comeonin) and validation
+        then ensure the 
+    do seeding of locations and trips
+    model relations
+        then
+            the created trips table
+            the rejected trips table
+            the cancelled trips table
+    invites model and controller
 
-
-
-    Trip Model where 
-        id                 : Integer
-        start_time         : NaiveDateTime
-        arrival_time       : NaiveDateTime
-        owning_user        : User
-        owning_user_role   : UserRole Enum
-        starting_location  : Location
-        ending_location    : Location
-
-
-
-
-
-        
+    tests!
