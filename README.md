@@ -23,6 +23,25 @@
   * Interactive Elixir Prompt: `iex`
   * See all routes: `mix phoenix.routes`
 
-
-
 ## Routes So far:
+    page_path  GET     /                   MergeApi.PageController :index
+ session_path  POST    /api/auth           MergeApi.SessionController :create_session
+    user_path  GET     /api/users          MergeApi.UserController :index
+    user_path  GET     /api/users/:id      MergeApi.UserController :show
+    user_path  POST    /api/users          MergeApi.UserController :create
+    user_path  PATCH   /api/users/:id      MergeApi.UserController :update
+               PUT     /api/users/:id      MergeApi.UserController :update
+    user_path  DELETE  /api/users/:id      MergeApi.UserController :delete
+location_path  GET     /api/locations      MergeApi.LocationController :index
+location_path  GET     /api/locations/:id  MergeApi.LocationController :show
+location_path  POST    /api/locations      MergeApi.LocationController :create
+location_path  PATCH   /api/locations/:id  MergeApi.LocationController :update
+               PUT     /api/locations/:id  MergeApi.LocationController :update
+location_path  DELETE  /api/locations/:id  MergeApi.LocationController :delete
+    trip_path  GET     /api/trips          MergeApi.TripController :index
+    trip_path  GET     /api/trips/:id      MergeApi.TripController :show
+    trip_path  POST    /api/trips          MergeApi.TripController :create
+    trip_path  PATCH   /api/trips/:id      MergeApi.TripController :update
+               PUT     /api/trips/:id      MergeApi.TripController :update
+    trip_path  DELETE  /api/trips/:id      MergeApi.TripController :delete
+matching_path  POST    /api/match          MergeApi.MergeApi.Services.Matching :match

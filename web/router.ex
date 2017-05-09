@@ -1,6 +1,6 @@
 defmodule MergeApi.Router do
   use MergeApi.Web, :router
-  import MergeApi.Services
+  alias MergeApi.Services.Matching
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -12,9 +12,14 @@ defmodule MergeApi.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
-    plug Guaridan.Plug.VerifyHeader
+    plug Guardian.Plug.VerifyHeader
     plug Guardian.Plug.LoadResource
   end
+
+  pipeline :auth do
+    plug Guardian.Plug.EnsureAuthenticated, handler: MergeApi.SessionController
+  end
+
 
   scope "/", MergeApi do
     pipe_through :browser # Use the default browser stack
@@ -25,8 +30,8 @@ defmodule MergeApi.Router do
   # Other scopes may use custom stacks.
   scope "/api", MergeApi do
     pipe_through :api
-    post "/auth", SessionController, :create
-    plug Guardian.Plug.EnsureAuthenticated, handler: MergeApi.SessionController
+    post "/auth", SessionController, :create_session
+    pipe_through :auth
     resources "/users", UserController, except: [:new, :edit]
     resources "/locations", LocationController, except: [:new, :edit]
     resources "/trips", TripController, except: [:new, :edit]

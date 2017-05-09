@@ -1,5 +1,6 @@
 defmodule MergeApi.Trip do
   use MergeApi.Web, :model
+  alias MergeApi.Enums.MatchingState
 
   schema "trips" do
     field :start_datetime, Ecto.DateTime
@@ -7,7 +8,7 @@ defmodule MergeApi.Trip do
     field :owning_user, :integer
     field :start_location, :integer
     field :end_location, :integer
-    field :state, MatchingState, default: MatchingState.unmatched
+    field :state, :integer, default: MatchingState.unmatched
 
     timestamps()
   end

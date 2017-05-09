@@ -1,9 +1,9 @@
 defmodule MergeApi.User do
   use MergeApi.Web, :model
-  alias MergeApi.Enums.Permissions
+  alias MergeApi.Enums.PermissionLevel
 
   schema "users" do
-    field :perm_level, Permissions, default: Permissions.user
+    field :perm_level, :integer, default: PermissionLevel.user
     field :phone_number, :string
     field :email, :string
     field :auth_token, :string
